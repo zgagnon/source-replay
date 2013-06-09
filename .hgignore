@@ -1,0 +1,4 @@
+syntax: glob
+source-replay.iml
+.idea/**/*
+.idea/*
