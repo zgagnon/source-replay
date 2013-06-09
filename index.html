@@ -6,7 +6,7 @@
     <script type="text/javascript" src="libraries/handlebars.js"></script>
     <script type="text/javascript" src="js/sr.js"></script>
     <script id="file-template" type="text/x-handlebars-template">
-        file.txt
+            {{file}}
     </script>
 </head>
 <body>
@@ -16,8 +16,6 @@ Gives a play-by-play recap of a source control tree. Requires a single file per 
     <span id="from"><input/><button>OK!</button></span>
     <span id="to"><input/><button>OK!</button></span>
 </div>
-<div id="file">
-    {{file}}
-</div>
+<div id="file"></div>
 </body>
 </html>
