@@ -10,13 +10,20 @@ $(window).load(function () {
     var template = Handlebars.compile(source);
 
     //Setting event handler for the start button
-    $("#start-replay").click(function (event)
-    {
+    $("#start-replay").click(function (event) {
         var start = $("#from").val() || DEFAULT_START;
         var end = $("#to").val() || DEFAULT_END;
 
-        var content = start + " - " + end;
-        var html = template({file: content});
-        $("#file").html(html);
+        //Example hgserve raw file url:
+        // http://localhost:8000/raw-file/bd1acca4ed1f/.hgignore
+
+        if (!$("#url").val()) {
+            $("#file").html("URL is required");
+        } else {
+
+            var content = $("#url").val() + " changes: " + start + " - " + end;
+            var html = template({range: content});
+            $("#file").html(html);
+        }
     });
 });
