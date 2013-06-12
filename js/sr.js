@@ -20,10 +20,14 @@ $(window).load(function () {
         if (!$("#url").val()) {
             $("#file").html("URL is required");
         } else {
+            var file = "http://localhost:8000/raw-file/bd1acca4ed1f/.hgignore";
 
-            var content = $("#url").val() + " changes: " + start + " - " + end;
-            var html = template({range: content});
-            $("#file").html(html);
+            $.get(file, function (data) {
+                var range = $("#url").val() + " changes: " + start + " - " + end;
+                var html = template({range: range, fileContents: data});
+                $("#file").html(html);
+            });
+
         }
     });
 });
