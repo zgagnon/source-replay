@@ -17,16 +17,16 @@ $(window).load(function () {
         //Example hgserve raw file url:
         // http://localhost:8000/raw-file/bd1acca4ed1f/.hgignore
 
-        if (!$("#url").val()) {
-            $("#file").html("URL is required");
+        if (!$("#username").val() && !$("#repo").val()) {
+            $("#file").html("Username and repository are required.");
         } else {
-            var file = $("#url").val();
+            var file = "https://api.github.com/repos/" + $("#username").val() + "/" + $("#repo").val();
 
             $.get(file, function (data) {
-                var range = $("#url").val() + " changes: " + start + " - " + end;
+                var range = "changes: " + start + " - " + end;
                 var html = template({range: range, fileContents: data});
                 $("#file").html(html);
-            }, "json");
+            });
 
         }
     });
