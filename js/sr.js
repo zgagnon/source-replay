@@ -15,7 +15,6 @@ function createRandomString(length) {
         {
             string = string + String.fromCharCode(number);
         }
-
     }
     return string;
 }
@@ -26,14 +25,13 @@ $(window).load(function () {
 
     //Setting event handler for the sign in button
     $("#signin").click(function (event) {
-        var state = "";
-        state = createRandomString(state);
+        var state = createRandomString(50);
         $.cookie("source-replay", state);
 
         var html = template({range: "none", fileContents: state});
         $("#file").html(html);
 
-//        window.location.replace("https://github.com/login/oauth/authorize?client_id=0ec80b17f754d4c7b7f4");
+        window.location.replace("https://github.com/login/oauth/authorize?client_id=0ec80b17f754d4c7b7f4&state="+state);
     });
 
 
