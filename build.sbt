@@ -1,3 +1,5 @@
+import com.typesafe.sbt.SbtStartScript
+
 name := "Source Replay"
 
 version := "1.0"
@@ -14,3 +16,4 @@ libraryDependencies += "com.sun.jersey" % "jersey-server" % "1.2"
 
 libraryDependencies += "com.sun.jersey" % "jersey-json" % "1.2"
 
+seq(SbtStartScript.startScriptForClassesSettings: _*)
